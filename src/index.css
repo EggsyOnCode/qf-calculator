@@ -1,13 +1,43 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@10..48,200;10..48,300;10..48,500;10..48,600&family=Poppins:wght@200;400;600;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --black-gradient: linear-gradient(
+    144.39deg,
+    #ffffff -278.56%,
+    #6d6d6d -78.47%,
+    #11101d 91.61%
+  );
+  --card-shadow: 0px 20px 100px -10px rgba(66, 71, 91, 0.1);
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+* {
+  scroll-behavior: smooth;
+}
+
+.bg-hero-gradient {
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(98, 97, 90, 1) 53%,
+    rgba(255, 241, 206, 1) 98%
+  );
+}
+
+@layer base {
+  html {
+    font-family: Bricolage-Grotesque, system-ui, sans-serif;
+  }
+}
+
+.bg-hero-gradient {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 213, 142, 1) 0%,
+    rgba(219, 209, 19, 1) 26%,
+    rgba(181, 237, 0, 1) 60%
+  );
 }
