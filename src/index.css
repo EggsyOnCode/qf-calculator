@@ -27,6 +27,19 @@
   );
 }
 
+.text-gradient {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 213, 142, 1) 0%,
+    rgba(219, 209, 19, 1) 26%,
+    rgba(181, 237, 0, 1) 60%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
 @layer base {
   html {
     font-family: Bricolage-Grotesque, system-ui, sans-serif;

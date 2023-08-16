@@ -5,7 +5,7 @@ const NavBar = () => {
   const [active, setActive] = useState("Home");
 
   return (
-    <nav className="w-full flex py-5 justify-between items-center navbar">
+    <nav className="w-full flex py-3 justify-between items-center navbar">
       <ul className="list-none sm:flex hidden justify-around items-center flex-1">
         {navlinks.map((nav, index) => (
           <li
