@@ -1,8 +1,8 @@
 import './App.css';
-import NavBar from './components/NavBar';
-import Hero from './components/Hero';
-import Learn from './components/Learn';
-import Calculator from './components/Calculator';
+import NavBar from './components/NavBar.js';
+import Hero from './components/Hero.js';
+import Learn from './components/Learn.js';
+import Calculator from './components/Calculator.js';
 
 
 function App() {

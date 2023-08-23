@@ -3,7 +3,7 @@ import {
   QF_CON_ADDR,
   MF_CON_ADDR,
   MF_CON_ABI,
-} from "./constants.js";
+} from "./constants.mjs";
 import { ethers } from "ethers";
 import BigNumber from "bignumber.js";
 const provider = new ethers.providers.JsonRpcProvider(
@@ -78,8 +78,8 @@ async function getMFCount() {
 }
 
 async function main() {
-  console.log(await getProjectFundings(0));
-  console.log(await getMFCount())
+  console.log(await getProjectFundings(100));
+  // console.log(await getMFCount())
   // await calcNetReception(0);
 }
 
