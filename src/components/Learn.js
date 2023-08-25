@@ -1,6 +1,6 @@
 import React from "react";
 const Learn = () => {
-  const yt_url = "http://localhost:4000/yt-video/learn-qf.mp4"
+  const yt_url = "http://localhost:4000/yt-video"
   return (
     <section id="Learn More" className="bg-black p-12 h-fit mt-12">
       <div className="flex justify-around">
@@ -16,7 +16,10 @@ const Learn = () => {
           </p>
         </div>
 
-        <video src={yt_url} width="750" height="500" controls></video>
+        <video controls width="760" height={480}>
+          <source src={yt_url} type="video/webm" />
+          <source src={yt_url} type="video/mp4" />
+        </video>
       </div>
 
       <div>
@@ -24,21 +27,23 @@ const Learn = () => {
           More Resources!
         </p>
         <div className="flex justify-center m-10">
-          {/* <iframe
+          <embed
             className="rounded-2xl mr-20"
             width="580"
             height="700"
+            type="text/html"
             src="https://vitalik.ca/general/2019/12/07/quadratic.html"
             frameborder="0"
-          ></iframe>
+          ></embed>
 
-          <iframe
+          <embed
             className="rounded-2xl"
+            type="text/html"
             width="580"
             height="700"
             src="https://www.google.com/url?q=https://cointelegraph.com/explained/quadratic-funding-the-future-of-crowdfunding-explained&usg=AOvVaw3Wlp-Vt9v9foGCjiypW6VN&cs=1&hl=en-PK"
             frameborder="0"
-          ></iframe> */}
+          ></embed>
         </div>
       </div>
     </section>

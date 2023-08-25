@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const path = require("path");
-const fs = require("fs")
+const fs = require("fs");
 require("dotenv").config();
 
 app.use(express.json());
@@ -23,11 +23,41 @@ app.get("/ethToUsd/:ethAmt", async (req, res) => {
 
 app.get("/vitalik-blog", (req, res) => {
   res.sendFile(
-    path.join(__dirname, "/assets/vitalik.ca/general/2019/12/07/quadratic.html")
+    path.join(__dirname, "/public/vitalik.ca/general/2019/12/07/quadratic.html")
   );
 });
 
-app.get('/yt-video',express.static(__dirname + "/assets"));
+app.get("/yt-video", (req,res)=>{
+  const videoPath = "public/videos/learn-qf.mp4"; // Path to your video file
+  const stat = fs.statSync(videoPath);
+  const fileSize = stat.size;
+  const range = req.headers.range;
+
+  if (range) {
+    const parts = range.replace(/bytes=/, "").split("-");
+    const start = parseInt(parts[0], 10);
+    const end = parts[1] ? parseInt(parts[1], 10) : fileSize - 1;
+    const chunkSize = end - start + 1;
+    const file = fs.createReadStream(videoPath, { start, end });
+    const head = {
+      "Content-Range": `bytes ${start}-${end}/${fileSize}`,
+      "Accept-Ranges": "bytes",
+      "Content-Length": chunkSize,
+      "Content-Type": "video/mp4",
+    };
+
+    res.writeHead(206, head);
+    file.pipe(res);
+  } else {
+    const head = {
+      "Content-Length": fileSize,
+      "Content-Type": "video/mp4",
+    };
+
+    res.writeHead(200, head);
+    fs.createReadStream(videoPath).pipe(res);
+  }
+});
 
 const port = process.env.PORT || 4000;
 app.listen(port, console.log(`server is running at port ${port}`));
