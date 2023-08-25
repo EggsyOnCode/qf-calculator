@@ -13,7 +13,15 @@ const NavBar = () => {
             key={nav.id}
             onClick={() => setActive(nav.title)}
           >
-            <a href={`#${nav.id}`}>{nav.title}</a>
+            <a
+              href={`${
+                nav.id === "github"
+                  ? "https://github.com/EggsyOnCode/qf-calculator"
+                  : `#${nav.id}`
+              }`}
+            >
+              {nav.title}
+            </a>
           </li>
         ))}
       </ul>

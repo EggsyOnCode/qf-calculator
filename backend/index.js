@@ -21,13 +21,7 @@ app.get("/ethToUsd/:ethAmt", async (req, res) => {
   res.send(result.toString());
 });
 
-app.get("/vitalik-blog", (req, res) => {
-  res.sendFile(
-    path.join(__dirname, "/public/vitalik.ca/general/2019/12/07/quadratic.html")
-  );
-});
-
-app.get("/yt-video", (req,res)=>{
+app.get("/yt-video", (req, res) => {
   const videoPath = "public/videos/learn-qf.mp4"; // Path to your video file
   const stat = fs.statSync(videoPath);
   const fileSize = stat.size;

@@ -11,6 +11,10 @@ export const navlinks = [
     id: "Calculator",
     title: "Use QF Calculator",
   },
+  {
+    id: "github",
+    title: "Github Repo",
+  },
 ];
 export const QF_CON_ADDR = "0xAF328a21Be0499EE774A4c4ad63d8b7509346f1a";
 export const QF_CON_ABI = [
