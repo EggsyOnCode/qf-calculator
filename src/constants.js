@@ -1,19 +1,18 @@
 export const navlinks = [
-    {
-        id : "Home",
-        title : "Home"
-    },
-    {
-        id : "Learn More",
-        title : "Learn More"
-    },
-    {
-        id: "Calculator",
-        title : "Use QF Calculator"
-    }
-]
-
-export const QF_CON_ADDR = "0xdFB5F50DDAcba2fd3973B74b953cB36Ef27760c8";
+  {
+    id: "Home",
+    title: "Home",
+  },
+  {
+    id: "Learn More",
+    title: "Learn More",
+  },
+  {
+    id: "Calculator",
+    title: "Use QF Calculator",
+  },
+];
+export const QF_CON_ADDR = "0xAF328a21Be0499EE774A4c4ad63d8b7509346f1a";
 export const QF_CON_ABI = [
   {
     inputs: [],
@@ -95,6 +94,13 @@ export const QF_CON_ABI = [
       },
     ],
     stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "increaseProjectCounter",
+    outputs: [],
+    stateMutability: "nonpayable",
     type: "function",
   },
   {
@@ -200,8 +206,3 @@ export const MF_CON_ABI = [
     type: "function",
   },
 ];
-
-
-
-
-
