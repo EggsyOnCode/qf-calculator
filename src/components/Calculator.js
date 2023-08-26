@@ -191,65 +191,88 @@ const Calculator = () => {
   }
 
   async function convertToUSD(ethAmt) {
-    const usdAmt = await fetch(`http://localhost:4000/ethToUsd/${ethAmt}`).then(
-      (res) => res.json()
-    );
-    console.log(usdAmt);
-    return usdAmt;
+    if (provider) {
+      const usdAmt = await fetch(
+        `https://qf-calculator-server.vercel.app/ethToUsd/${ethAmt}`,
+        {
+          method: "GET",
+          mode: "cors",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(),
+        }
+      ).then(async (res) => {
+        const response = await res.json();
+        return response;
+      });
+      console.log(usdAmt);
+      return usdAmt;
+    } else {
+      alertForProvider();
+    }
   }
 
   async function calcResultsInUSD() {
-    console.log("Waiting for the results");
-    console.log(grant);
-    const tempGrants = [...grant];
+    if (provider) {
+      console.log("Waiting for the results");
+      console.log(grant);
+      const tempGrants = [...grant];
 
-    Swal.fire({
-      title: "calculating results...",
-      allowOutsideClick: false,
-      didOpen: async () => {
-        Swal.showLoading();
+      Swal.fire({
+        title: "calculating results...",
+        allowOutsideClick: false,
+        didOpen: async () => {
+          Swal.showLoading();
 
-        for (const obj of tempGrants) {
-          const [, fundingAmt] = await getProjectFundings(obj.indexG);
-          obj.funded = await convertToUSD(fundingAmt);
-          console.log(obj.funded);
+          for (const obj of tempGrants) {
+            const [, fundingAmt] = await getProjectFundings(obj.indexG);
+            obj.funded = await convertToUSD(fundingAmt);
+            console.log(obj.funded);
 
-          const prjMF = await calcNetReception(obj.indexG);
-          obj.matched = await convertToUSD(prjMF);
-          console.log(obj.matched);
-        }
+            const prjMF = await calcNetReception(obj.indexG);
+            obj.matched = await convertToUSD(prjMF);
+            console.log(obj.matched);
+          }
 
-        setGrant(tempGrants);
-        Swal.close();
-      },
-    });
+          setGrant(tempGrants);
+          Swal.close();
+        },
+      });
+    } else {
+      alertForProvider();
+    }
   }
 
   async function calcResultsInETH() {
-    console.log("Waiting for the results");
-    console.log(grant);
-    const tempGrants = [...grant];
+    if (provider) {
+      console.log("Waiting for the results");
+      console.log(grant);
+      const tempGrants = [...grant];
 
-    Swal.fire({
-      title: "calculating results...",
-      allowOutsideClick: false,
-      didOpen: async () => {
-        Swal.showLoading();
+      Swal.fire({
+        title: "calculating results...",
+        allowOutsideClick: false,
+        didOpen: async () => {
+          Swal.showLoading();
 
-        for (const obj of tempGrants) {
-          const [, fundingAmt] = await getProjectFundings(obj.indexG);
-          obj.funded = fundingAmt.toString();
-          console.log(obj.funded);
+          for (const obj of tempGrants) {
+            const [, fundingAmt] = await getProjectFundings(obj.indexG);
+            obj.funded = fundingAmt.toString();
+            console.log(obj.funded);
 
-          const prjMF = await calcNetReception(obj.indexG);
-          obj.matched = prjMF.toString();
-          console.log(obj.matched);
-        }
+            const prjMF = await calcNetReception(obj.indexG);
+            obj.matched = prjMF.toString();
+            console.log(obj.matched);
+          }
 
-        setGrant(tempGrants);
-        Swal.close();
-      },
-    });
+          setGrant(tempGrants);
+          Swal.close();
+        },
+      });
+    } else {
+      alertForProvider();
+    }
   }
 
   async function convertMatchedPolltoUSD() {

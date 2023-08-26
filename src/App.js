@@ -94,11 +94,28 @@ function App() {
                   </a>
                   .
                 </li>
+                <h1 className="text-center mb-4 text-xl font-bold">
+                  Small Bugs you need to beware of!(I am actively working on
+                  resolving them)
+                </h1>
+                <li className="mb-2">
+                  When Connecting to Metamask you should receive 2 popups; they
+                  are there to initialzie the state of the smart contract on
+                  blockchain
+                  <br />
+                  <br />
+                  Kindly wait for them to complete; you can check their status
+                  clicking the metamask extension
+                </li>
+                <li className="mb-2">
+                  Do the same thing when "Adding Grant", after having clicked the button, monitor the transaction in the metamask extension and resume when its completed
+                </li>
+
                 <li className="mb-2">Enjoy using the calculator!</li>
               </ul>
 
               <button
-                className="bg-yellow-500 text-black p-3 mt-10 ml-28 rounded-lg"
+                className="bg-yellow-500 text-black p-3 mt-8 ml-28 rounded-lg"
                 onClick={() => {
                   setTimeout(() => {
                     setOpenPanel(false);

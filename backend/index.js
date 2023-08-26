@@ -1,7 +1,6 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
-const path = require("path");
 const fs = require("fs");
 require("dotenv").config();
 
@@ -22,7 +21,7 @@ app.get("/ethToUsd/:ethAmt", async (req, res) => {
 });
 
 app.get("/yt-video", (req, res) => {
-  const videoPath = "public/videos/learn-qf.mp4"; // Path to your video file
+  const videoPath = "public/learn-qf.mp4"; // Path to your video file
   const stat = fs.statSync(videoPath);
   const fileSize = stat.size;
   const range = req.headers.range;

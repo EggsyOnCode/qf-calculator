@@ -1,6 +1,7 @@
 import React from "react";
 const Learn = () => {
-  const yt_url = "http://localhost:4000/yt-video"
+  const yt_url = "../../public/videos/learn-qf.mp4";
+  const url = "https://peertube.linuxrocks.online/w/3xjzLwAAUzZrrNa2GF2Whr";
   return (
     <section id="Learn More" className="bg-black p-12 h-fit mt-12">
       <div className="flex justify-around">
@@ -16,10 +17,19 @@ const Learn = () => {
           </p>
         </div>
 
-        <video controls width="760" height={480}>
-          <source src={yt_url} type="video/webm" />
-          <source src={yt_url} type="video/mp4" />
-        </video>
+        <div className="flex  flex-col justify-center items-center h-[480px] w-[720px] bg-blue-950 rounded-2xl">
+          <h1 className="text-dimWhite font-bold text-[20px] mb-10">
+            <u>
+              <a href="https://www.youtube.com/watch?v=hEHv-dE4xl8">
+                Video Link Here
+              </a>
+            </u>
+          </h1>
+          <p className="text-red-300 text-center">
+            Iframe embeded youtube video links no longer working on firefox and
+            chromium; excuse the inconvenience!
+          </p>
+        </div>
       </div>
 
       <div>
