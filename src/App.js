@@ -52,8 +52,8 @@ function App() {
         }}
       >
         <SlidingPanel type={"left"} isOpen={openPanel} size={40}>
-          <div className="flex justify-center items-center h-screen pl-44">
-            <div className="p-3 pl-10 text-white font-brico">
+          <div className="flex justify-center items-center h-screen pl-44 overflow-y-scroll">
+            <div className="p-3 pl-10 text-white mt-28 font-brico">
               <h1 className="text-center mb-4 text-2xl font-bold">
                 How to Use the Calculator
               </h1>
@@ -94,9 +94,9 @@ function App() {
                   </a>
                   .
                 </li>
-                <h1 className="text-center mb-4 text-xl font-bold">
-                  Small Bugs you need to beware of!(I am actively working on
-                  resolving them)
+                <h1 className="text-center mb-4 text-lg font-bold">
+                  Small Bugs you need to beware of! <br />
+                  (I am actively working on resolving them)
                 </h1>
                 <li className="mb-2">
                   When Connecting to Metamask you should receive 2 popups; they
@@ -108,14 +108,37 @@ function App() {
                   clicking the metamask extension
                 </li>
                 <li className="mb-2">
-                  Do the same thing when "Adding Grant", after having clicked the button, monitor the transaction in the metamask extension and resume when its completed
+                  Do the same thing when "Adding Grant", after having clicked
+                  the button, monitor the transaction in the metamask extension
+                  and resume when its completed
                 </li>
 
-                <li className="mb-2">Enjoy using the calculator!</li>
+                <div>
+                  <h1 className="text-center text-lg font-bold">NOTE!</h1>
+                  <p className="text-center">
+                    The calculations esp after conversion to USD can be OFF by
+                    some degrees; that's because JS is BAD at MATH!
+                  </p>
+                  <p className="text-center">
+                    You can use eth-usd calculator{" "}
+                    <a
+                      href="https://www.coinbase.com/converter/eth/usd"
+                      className="text-blue-500 hover:underline"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      HERE
+                    </a>
+                  </p>
+                </div>
+
+                <li className="mb-2 mt-2 font-bold">
+                  Enjoy using the calculator!
+                </li>
               </ul>
 
               <button
-                className="bg-yellow-500 text-black p-3 mt-8 ml-28 rounded-lg"
+                className="bg-yellow-500 text-black p-3 mt-2 ml-28 rounded-lg"
                 onClick={() => {
                   setTimeout(() => {
                     setOpenPanel(false);
